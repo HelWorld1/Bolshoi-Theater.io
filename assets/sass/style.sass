@@ -6,6 +6,7 @@
 $basic-color: #fff
 $second-color: #D1A954
 $background-color: #333
+$background-image: url('../img/sprite.webp')
 /* Basic style */
 *
 	padding: 0
@@ -104,7 +105,7 @@ span
 	max-width: 100%
 	width: 100%
 	min-height: 814px
-	background-image: url('../img/background.jpg')
+	background-image: url('../img/background.webp')
 	background-repeat: no-repeat
 .nav-panel
 	margin: 0
@@ -214,7 +215,7 @@ span
 		grid-row-gap: 25px 
 	&__item
 		position: relative
-		background: linear-gradient(0deg, rgba(209, 169, 84, 0.85), rgba(209, 169, 84, 0.85)), url('../img/sprite.png')
+		background: linear-gradient(0deg, rgba(209, 169, 84, 0.85), rgba(209, 169, 84, 0.85)), $background-image
 		z-index: 1000
 		&_1
 			background-position: 0 1000px
@@ -235,7 +236,7 @@ span
 		top: -20px
 		z-index: 1
 		max-height: 400px
-		background-image: url('../img/sprite.png')
+		background-image: $background-image
 		&_1
 			width: 350px
 			height: 490px
@@ -295,7 +296,7 @@ span
 	&__text
 		max-width: 430px
 	&__img-small
-		background-image: url('../img/sprite.png')
+		background-image: $background-image
 		&_1
 			width: 62px
 			height: 70px
@@ -306,7 +307,7 @@ span
 			height: 66px
 			background-position: 0 -784px
 	&__img-big
-		background-image: url('../img/sprite.png')
+		background-image: $background-image
 		background-repeat: no-repeat
 		background-position: 0 -1908px
 		width: 350px
@@ -328,7 +329,7 @@ span
 		align-items: flex-start
 		max-width: 100%
 		height: 550px
-		background-image: url('../img/sprite.png')
+		background-image: $background-image
 		background-repeat: no-repeat
 		&:first-child
 			background-position: -995px 0
@@ -381,7 +382,7 @@ span
 		align-items: center
 		max-width: 1110px
 		height: 550px
-		background-image: url('../img/sprite.png')
+		background-image: $background-image
 		background-repeat: no-repeat
 		background-position: -590px -1650px
 	&__list
@@ -429,7 +430,7 @@ span
 	&__logo
 		width: 200px
 		height: 96px
-		background-image: url('../img/sprite.png')
+		background-image: $background-image
 		background-repeat: no-repeat
 		background-position: -1700px -1554px
 /* .request */
