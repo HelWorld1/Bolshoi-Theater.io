@@ -102,9 +102,9 @@ validation
   ]).onSuccess((event) => {
     console.log('Validation passes and form submitted', event);
 
-    let formData = new FormData(event.target);
+    let formDat = new FormData(event.target);
 
-    console.log(...formData);
+    console.log(...formDat);
 
     let xhr = new XMLHttpRequest();
 
@@ -117,7 +117,7 @@ validation
     }
 
     xhr.open('POST', 'mail.php', true);
-    xhr.send();
+    xhr.send(formDat);
 
     event.target.reset();
   });
