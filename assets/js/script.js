@@ -117,7 +117,7 @@ validation
     }
 
     xhr.open('POST', 'mail.php', true);
-    xhr.send(formData);
+    xhr.send();
 
     event.target.reset();
   });
