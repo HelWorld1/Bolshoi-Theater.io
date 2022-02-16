@@ -27,6 +27,7 @@ $body = "<table style='width: 100%;'>$body</table>";
 $mail = new PHPMailer\PHPMailer\PHPMailer();
 
 try {
+  $mail->SMTPDebug = 1;
   $mail->isSMTP();
   $mail->CharSet = "UTF-8";
   $mail->SMTPAuth   = true;
