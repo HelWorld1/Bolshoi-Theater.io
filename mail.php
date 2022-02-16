@@ -38,8 +38,8 @@ $mail->SMTPAuth   = true;
 
 // Настройки вашей почты
 $mail->Host       = 'smtp.gmail.com'; // SMTP сервера вашей почты
-$mail->Username   = 'gdima4813@gmail.com'; // Логин на почте
-$mail->Password   = 'jhrgqblvwxjjezip'; // Пароль на почте
+$mail->Username   = ''; // Логин на почте
+$mail->Password   = ''; // Пароль на почте
 $mail->SMTPSecure = 'tls';
 $mail->Port       = 587;
 
