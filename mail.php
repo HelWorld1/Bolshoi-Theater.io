@@ -4,8 +4,13 @@ require 'assets/phpmailer/PHPMailer.php';
 require 'assets/phpmailer/SMTP.php';
 require 'assets/phpmailer/Exception.php';
 
+$mail = new PHPMailer();
+
 $title = "Тема письма";
-$file = $_FILES['file'];
+$name = $_POST['name'];
+$company = $_POST['company'];
+$tel = $_POST['tel'];
+$email = $_POST['email'];
 
 $c = true;
 // Формирование самого письма
@@ -26,45 +31,33 @@ $body = "<table style='width: 100%;'>$body</table>";
 // Настройки PHPMailer
 $mail = new PHPMailer\PHPMailer\PHPMailer();
 
-try {
-  $mail->SMTPDebug = 1;
-  $mail->isSMTP();
-  $mail->CharSet = "UTF-8";
-  $mail->SMTPAuth   = true;
+$mail->SMTPDebug = SMTP::DEBUG_SERVER;
+$mail->isSMTP();
+$mail->CharSet = "UTF-8";
+$mail->SMTPAuth   = true;
 
-  // Настройки вашей почты
-  $mail->Host       = 'smtp.gmail.com'; // SMTP сервера вашей почты
-  $mail->Username   = 'gdima4813@gmail.com'; // Логин на почте
-  $mail->Password   = 'jhrgqblvwxjjezip'; // Пароль на почте
-  $mail->SMTPSecure = 'ssl';
-  $mail->Port       = 465;
+// Настройки вашей почты
+$mail->Host       = 'smtp.gmail.com'; // SMTP сервера вашей почты
+$mail->Username   = 'gdima4813@gmail.com'; // Логин на почте
+$mail->Password   = 'jhrgqblvwxjjezip'; // Пароль на почте
+$mail->SMTPSecure = 'tls';
+$mail->Port       = 587;
 
-  $mail->setFrom('gdima4813@gmail.com', 'Заявка с вашего сайта'); // Адрес самой почты и имя отправителя
+$mail->setFrom('gdima4813@gmail.com', 'Заявка с вашего сайта'); // Адрес самой почты и имя отправителя
 
-  // Получатель письма
-  $mail->addAddress('gdima4813@gmail.com');
+// Получатель письма
+$mail->addAddress('gdima4813@gmail.com');
 
-  // Прикрипление файлов к письму
-  if (!empty($file['name'][0])) {
-    for ($ct = 0; $ct < count($file['tmp_name']); $ct++) {
-      $uploadfile = tempnam(sys_get_temp_dir(), sha1($file['name'][$ct]));
-      $filename = $file['name'][$ct];
-      if (move_uploaded_file($file['tmp_name'][$ct], $uploadfile)) {
-          $mail->addAttachment($uploadfile, $filename);
-          $rfile[] = "Файл $filename прикреплён";
-      } else {
-          $rfile[] = "Не удалось прикрепить файл $filename";
-      }
-    }
-  }
+// Отправка сообщения
+$mail->isHTML(true);
+$mail->Subject = $title;
+$mail->Body = $body;
 
-  // Отправка сообщения
-  $mail->isHTML(true);
-  $mail->Subject = $title;
-  $mail->Body = $body;
+$mail->send();
 
-  $mail->send();
-
-} catch (Exception $e) {
-  $status = "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}";
+if (!$mail->send()){
+  echo 'Error'
+} else {
+  echo 'Norm';
 }
+?>

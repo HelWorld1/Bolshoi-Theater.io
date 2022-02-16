@@ -168,19 +168,19 @@
 						<a href="mailto:info@theaters.ru" class="request__item request__item-right">info@theater.ru</a>
 						<p class="request__item request__item-right">г. санкт-петербург, невский 140</p>
 					</div>
-					<form action="#" class="request__form form" method="POST" enctype="multipart/form-data">
+					<form action="mail.php" class="request__form form" method="POST" enctype="multipart/form-data">
 						<div class="request__body">
 							<label class="form__element">
-								<input type="text" placeholder="Имя" class="input-name" name="Имя">
+								<input type="text" placeholder="Имя" class="input-name" name="name">
 							</label>
 							<label class="form__element">
-								<input type="text" placeholder="Компания" class="input-company">
+								<input type="text" placeholder="Компания" class="input-company" name="company">
 							</label>
 							<label class="form__element">
-								<input class="tel input-tel" type="tel" placeholder="Телефон +7(___)___-__-__" pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}" name="Телефон">
+								<input class="tel input-tel" type="tel" placeholder="Телефон +7(___)___-__-__" pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}" name="tel">
 							</label>
 							<label class="form__element">
-								<input class= "input-mail" type="email" placeholder="E-mail" pattern="[0-9]{6}" name="Email">
+								<input class= "input-mail" type="email" placeholder="E-mail" pattern="[0-9]{6}" name="email">
 							</label>
 							<textarea class="textarea" placeholder="Сообщение" name="Сообщение"></textarea>
 						</div>
